@@ -16,8 +16,6 @@ MONGO_SETTINGS = {
 }
 
 mysql_client = Mysql2::Client.new(MYSQL_SETTINGS)
-mysql_client.query_options.merge!(symbolize_keys: true)
-
 mongo_client = Mongo::Connection.new.db(MONGO_SETTINGS[:schema])
 
 if MONGO_SETTINGS.has_key?(:username) && MONGO_SETTINGS.has_key?(:password)
